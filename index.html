@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+    <head>
+        <style>
+            body,
+            div,
+            canvas {
+                margin: 2px;
+                padding: 0px;
+                background-color: black;
+            }
+            
+            .button {
+                font-size: 20px;
+                width: 250px;
+                height: 40px;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+                border: 2px solid #4CAF50;
+            }
+            
+            .button:hover {
+                background-color: #1ec503;
+                color: white;
+            }
+            
+            .can {
+                float: left;
+            }
+            
+            .speed {
+                font-size: 25px;
+                color: #4CAF50;
+            }
+
+        </style>
+
+        <script src="./jquery.min.js"></script>
+        <script src="./arq.js"></script>
+    </head>
+
+    <body onload="arq.init()">
+
+        <div id="container" class="can">
+            <canvas id="canvas" height="600" width="600"></canvas>
+        </div>
+
+        <br></br>
+        <input type="button" class="button" onclick="arq.sendPacket()" id="send-button" value="Send Packet &#9658"></input>
+        <span class="speed" id="packs">Packets Sent 0</span><br></br>
+        <input type="button" class="button" onclick="arq.pause()" id="pause-button" value="Stop"></input><br></br>
+        <input type="button" class="button" onclick="arq.dropPackets()" id="kill-button" value="Kill Packet &#9760" disabled="true"><br></br>
+        <input type="button" class="button" onclick="arq.faster()" id="fast-button" value="Faster &raquo"></input>
+        <span class="speed" id="range">Speed 0</span><br></br>
+        <input type="button" class="button" onclick="arq.slower()" id="slow-button" value="Slower &laquo"></input>
+        <span class="speed" id="received">Received Packets 0</span><br></br>
+        <input type="reset" class="button" onclick="history.go(0)" id="reset-button" value="Reset &#8635">
+        <span class="speed" id="confirm">Confirmed Packets 0</span><br></br>
+        <div><canvas id="text-canvas" height="200" width="550"></canvas></div>
+
+    </body>
+
+</html>
